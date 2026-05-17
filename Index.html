@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R07 Core - Master AI Logic Engine</title>
+    <style>
+        :root {
+            --bg-main: #0a0e14;
+            --bg-card: #111622;
+            --accent: #00ff66;
+            --text-main: #adbac7;
+            --text-bright: #ffffff;
+            --border: #2c313d;
+        }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace;
+            padding: 15px;
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px dashed var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: var(--accent);
+            font-size: 22px;
+            margin: 0 0 5px 0;
+            text-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
+        }
+        .header p {
+            font-size: 13px;
+            color: #768390;
+            margin: 0;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-bright);
+            font-size: 14px;
+        }
+        select, textarea {
+            width: 100%;
+            background-color: #0d1117;
+            color: var(--text-bright);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 14px;
+        }
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+        select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .btn-panel {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            flex: 1;
+            background-color: #223328;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+        button:hover {
+            background-color: var(--accent);
+            color: var(--bg-main);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+        }
+        .copy-btn {
+            background-color: #1f242c;
+            color: #58a6ff;
+            border: 1px solid #58a6ff;
+        }
+        .copy-btn:hover {
+            background-color: #58a6ff;
+            color: white;
+            box-shadow: 0 0 10px rgba(88, 166, 255, 0.4);
+        }
+        .output-container {
+            margin-top: 25px;
+        }
+        .output-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .output-box {
+            background-color: #070a0f;
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-size: 13px;
+            overflow-x: auto;
+            color: #e1e4e8;
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>[ R07 MASTER LOGIC CODE ENGINE ]</h1>
+        <p>Developer Security Terminal // Controlled by Ritesh Kumar</p>
+    </div>
+
+    <div class="input-group">
+        <label>1. Select Module Type (Kya banana hai?):</label>
+        <select id="moduleType">
+            <option value="login">Secure Login System (HTML/JS Interface)</option>
+            <option value="signup">Secure Signup System (Data Validation)</option>
+            <option value="gas_backend">Google Apps Script API (Sheets Backend)</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>2. Custom Instructions (Extra requirements):</label>
+        <textarea id="customInstructions" placeholder="Ex: Mujhe mobile number unique rakhna hai, ya design dark mode chahiye..."></textarea>
+    </div>
+
+    <div class="btn-panel">
+        <button onclick="compileR07MasterCode()">Compile & Build Code</button>
+        <button class="copy-btn" onclick="copyCompiledCode()">Copy Code</button>
+    </div>
+
+    <div class="output-container">
+        <div class="output-header">
+            <label>Output Protocol:</label>
+            <span id="statusLabel" style="color: #768390; font-size: 12px;">READY</span>
+        </div>
+        <div id="outputConsole" class="output-box">// Standing by for Ritesh Kumar (R07) inputs...</div>
+    </div>
+</div>
+
+<script>
+function compileR07MasterCode() {
+    let type = document.getElementById("moduleType").value;
+    let extra = document.getElementById("customInstructions").value || "Default Secure Protocols";
+    
+    document.getElementById("statusLabel").innerText = "COMPILING...";
+    document.getElementById("statusLabel").style.color = "#00ff66";
+
+    let header = `/**\n * CORE SYSTEM INFRASTRUCTURE\n * DEVELOPER: Ritesh Kumar (R07)\n * ACCESS LEVEL: MASTER / SECURE\n * EXTRA RULES: ${extra}\n */\n\n`;
+    let footer = `\n\n/**\n * END OF BLOCK\n * ENCR_KEY: INTEGRATED_R07_REVOLUTION_PROTOCOL\n */`;
+    
+    let logicBody = "";
+
+    if(type === "login") {
+        logicBody = `<!-- Secure Authentication Layout -->
+<div class="auth-box">
+    <h2>System Access - R07 Layer</h2>
+    <input type="tel" id="userPhone" placeholder="Enter Registered Phone Number" required>
+    <input type="password" id="userPass" placeholder="Enter Secure Password" required>
+    <button onclick="verifyR07Access()">Authenticate Access</button>
+</div>
+
+<script>
+function verifyR07Access() {
+    const phone = document.getElementById('userPhone').value;
+    const pass = document.getElementById('userPass').value;
+    
+    if(!phone || !pass) {
+        alert("Access Denied: Missing Credentials.");
+        return;
+    }
+    
+    const WEB_APP_URL = "YOUR_DEPLOYED_APPS_SCRIPT_URL_HERE";
+    
+    fetch(WEB_APP_URL + "?action=login&phone=" + phone + "&pass=" + pass)
+    .then(res => res.json())
+    .then(response => {
+        if(response.status === "SUCCESS") {
+            alert("Welcome " + response.name + "! Initializing Test Interface.");
+        } else {
+            alert("Error: Unauthorized Access Level.");
+        }
+    });
+}
+<\/script>`;
+    } 
+    else if(type === "signup") {
+        logicBody = `<!-- Registration Data Capture Module -->
+<div class="signup-box">
+    <h2>Create System Credentials</h2>
+    <input type="text" id="regName" placeholder="Full Name" required>
+    <input type="tel" id="regPhone" placeholder="Phone Number (Acts as UserID)" required>
+    <input type="password" id="regPass" placeholder="Create Strong Password" required>
+    <button onclick="registerR07User()">Register Account</button>
+</div>
+
+<script>
+function registerR07User() {
+    const name = document.getElementById('regName').value;
+    const phone = document.getElementById('regPhone').value;
+    const pass = document.getElementById('regPass').value;
+    
+    if(phone.length < 10) { alert("Invalid Phone Network Layer."); return; }
+
+    const payload = {
+        action: "signup",
+        name: name,
+        phone: phone,
+        password: pass
+    };
+
+    fetch("YOUR_DEPLOYED_APPS_SCRIPT_URL_HERE", {
+        method: "POST",
+        body: JSON.stringify(payload)
+    })
+    .then(res => res.text())
+    .then(data => alert("System Status: " + data));
+}
+<\/script>`;
+    } 
+    else if(type === "gas_backend") {
+        logicBody = `/* Google Apps Script Core Controller - Deployment Mode */
+function doPost(e) {
+    var data = JSON.parse(e.postData.contents);
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Users");
+    
+    if (data.action === "signup") {
+        var phoneNumbers = sheet.getRange(2, 2, sheet.getLastRow(), 1).getValues();
+        for (var i = 0; i < phoneNumbers.length; i++) {
+            if (phoneNumbers[i][0] == data.phone) {
+                return ContentService.createTextOutput("User Already Exists In R07 DB.");
+            }
+        }
+        
+        sheet.appendRow([data.name, data.phone, data.password, "Student"]);
+        return ContentService.createTextOutput("Account Registered Successfully under R07 Network.");
+    }
+}
+
+function doGet(e) {
+    var action = e.parameter.action;
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Users");
+    
+    if(action === "login") {
+        var rows = sheet.getDataRange().getValues();
+        for(var i = 1; i < rows.length; i++) {
+            if(rows[i][1] == e.parameter.phone && rows[i][2] == e.parameter.pass) {
+                return ContentService.createTextOutput(JSON.stringify({status: "SUCCESS", name: rows[i][0]}))
+                    .setMimeType(ContentService.MimeType.JSON);
+            }
+        }
+        return ContentService.createTextOutput(JSON.stringify({status: "FAILED"}))
+            .setMimeType(ContentService.MimeType.JSON);
+    }
+}`;
+    }
+
+    setTimeout(() => {
+        document.getElementById("outputConsole").innerText = header + logicBody + footer;
+        document.getElementById("statusLabel").innerText = "SUCCESSFULLY GENERATED";
+        document.getElementById("statusLabel").style.color = "#00ff66";
+    }, 400);
+}
+
+function copyCompiledCode() {
+    let text = document.getElementById("outputConsole").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Code copied to clipboard! (R07 Logic Locked)");
+}
+</script>
+
+</body>
+</html>
+
